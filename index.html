@@ -1716,7 +1716,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-011512',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-011737',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
