@@ -1472,7 +1472,8 @@ function lnInfo(){lnShell(`<div class="lnhero"><div class="lnlogo">SOROK</div><d
   <li><b>첫 계정</b>기존 청석·스킨·저장 데이터가 첫 계정으로 이전. 이후 만든 계정은 처음부터 시작</li>
   <li><b>로그인 상태 유지</b>체크 시 다음 실행 때 자동 로그인</li>
   <li><b>기기 이동</b>계정 관리의 백업 코드 복사 → 새 기기에서 [백업 코드로 불러오기]</li>
-  <li><b>버전</b>${APPVER.startsWith('__')?'미리보기':APPVER}</li></ul>`)}
+  <li><b>버전</b>${APPVER.startsWith('__')?'미리보기':APPVER}</li><li><b>앱 기능 (점검용)</b><span style="font-family:monospace;font-size:11px;word-break:break-all">${bridgeList()}</span></li></ul>`)}
+function bridgeList(){try{const out=[];for(const k of Object.getOwnPropertyNames(window)){if(!/apk|mint|android|native|bridge|webview|flutter|cordova|capacitor|^app$|^App[A-Z]?/i.test(k)||/^(on|webkit)/.test(k))continue;let v;try{v=window[k]}catch(_){continue}if(!v||typeof v!=='object')continue;const m=[];try{for(const x in v)m.push(x)}catch(_){}try{let pr=Object.getPrototypeOf(v);if(pr&&pr!==Object.prototype&&pr!==Function.prototype)Object.getOwnPropertyNames(pr).forEach(x=>{if(x!=='constructor'&&!m.includes(x))m.push(x)})}catch(_){}out.push(k+': '+(m.slice(0,80).join(', ')||'(목록 비공개)'))}return pfEsc(out.join(' / ')||'없음')}catch(e){return '확인 실패: '+pfEsc(String(e&&e.message||e))}}
 function lnHome(){const u=pfCur(),c=SV.cs||0;lnShell(`<div class="lnhero2"><div class="lntag">GAME</div><div class="lnlogo">SOROK</div><div class="lnsub">외계 기지 50개를 정복하라 · 시즌 1 은하 원정</div>
   <button data-ln="play" data-ln-enter class="lnplay">플레이</button><div class="lnver">버전 ${APPVER.startsWith('__')?'미리보기':APPVER}${BUILD==='test'?' · 🧪 테스트 서버':''}</div></div>`,
  `<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnuser"><i>${pfEsc((u&&u.name||'?')[0])}</i><div><b>${pfEsc(u?u.name:'')}</b><small>청석 ${c.toLocaleString()} · 별석 ${SV.ss||0}</small></div></div>
@@ -1709,7 +1710,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261124-190924',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261124-191412',BUILD='test';if(BUILD==='test')adminOn=true;
 function newVer(){if(scene==='lobby'&&$('boxw').hidden&&$('cashw').hidden){location.reload();return}if(scene==='game'&&!st.lost&&!st.won){paused=true;try{st.hold=null;st.drMode=0;st.vbMode=0}catch(_){}}$('updb').hidden=false}
 (function(){if(!/github\.io$/.test(location.hostname))return;const add=(rel,href)=>{const l=document.createElement('link');l.rel=rel;l.href=href;document.head.appendChild(l)};add('manifest','manifest.webmanifest');add('apple-touch-icon','icon-192.png');add('icon','icon-192.png');
  try{if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{})}catch(e){}
