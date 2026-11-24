@@ -1531,8 +1531,8 @@ async function pfClick(e){const b=e.target.closest('[data-pf]');const w=$('pfw')
 function pfBadge(){let b=$('pfbtn');if(!b){b=document.createElement('button');b.id='pfbtn';b.onclick=()=>pfUI('list');document.body.appendChild(b)}const u=pfCur();b.textContent='👤 '+(u?u.name:'계정');b.hidden=scene!=='lobby'||!$('lnw')||!$('lnw').hidden}
 setInterval(()=>{const b=$('pfbtn');if(b)b.hidden=scene!=='lobby'||!!($('lnw')&&!$('lnw').hidden)},400);
 setTimeout(()=>{if(authed())lnHome();else lnLogin()},250);
-/* SOROMA 인트로 → SOROK 로고 (PC 전용, 창당 한 번, 클릭·키로 건너뛰기) */
-(function(){const mm=q=>window.matchMedia&&matchMedia(q).matches;if(mm('(pointer:coarse)')&&!mm('(any-pointer:fine)'))return;let sk=0;try{if(sessionStorage.getItem('sorokT_intro'))sk=1;sessionStorage.setItem('sorokT_intro','1')}catch(_){}if(/[?&]intro/.test(location.search))sk=0;if(sk)return;
+/* SOROMA 인트로 → SOROK 로고 (PC·모바일, 창당 한 번, 터치·클릭·키로 건너뛰기) */
+(function(){let sk=0;try{if(sessionStorage.getItem('sorokT_intro'))sk=1;sessionStorage.setItem('sorokT_intro','1')}catch(_){}if(/[?&]intro/.test(location.search))sk=0;if(sk)return;
  const d=document.createElement('div');d.id='intro';d.innerHTML='<div class="s1"><canvas width="900" height="560"></canvas><div class="it"><b>SOROMA</b><small>GAMES</small></div></div><div class="s2"><div class="lg">SOROK</div><i></i><div class="sb">외계 기지 정복 전략</div></div>';document.body.appendChild(d);
  const c=d.querySelector('canvas'),g=c.getContext('2d'),P=[];let sd=11;const rn=()=>(sd=(sd*16807)%2147483647)/2147483647;
  for(let a=0;a<2;a++)for(let i=0;i<1100;i++){const t=Math.pow(rn(),.8)*3.1,r=24*Math.exp(.704*t);if(r>330)continue;const sa=rn()*7,sr=420+rn()*380;P.push({r:r*(1+(rn()-.5)*.12),a:a*Math.PI+t*2.2+(rn()-.5)*(.2+.08*t),k:r/330,s:(1.1+1.4*rn())*(1.2-r/660),sx:Math.cos(sa)*sr,sy:Math.sin(sa)*sr,dl:rn()*.45})}
@@ -1751,7 +1751,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-071510',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-072004',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
