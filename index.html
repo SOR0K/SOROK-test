@@ -854,7 +854,7 @@ function bgTick(){const id=bgmId(),M=id?MUS[id]:null,dflt=M?M[2]:260;
 (function bgStep(){let t=260;try{t=bgTick()||260}catch(e){}setTimeout(bgStep,t)})();
 function bgPreview(id){try{const a=au();if(a&&a.state!=='running')a.resume()}catch(e){}bgPrev={id,u:performance.now()+15000};bgT=0;const t=TS.find(q=>q.id===id);$('lmsg').textContent='🎵 '+(t?t.n:'')+' 테마곡 미리듣기 중 (15초)'+(SV.mute?' · 음소거를 풀어야 들려요':'')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-tprev]');if(!b)return;e.stopPropagation();bgPreview(b.dataset.tprev)},true);
-const PN=[['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
+const PN=[['11월 25일 업데이트',['☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','📦 처음 닉네임 정할 때 이 기기의 예전 계정 데이터(청석·스킨·저장) 가져오기 가능']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
  ['🛡 기지 보호막 (백도어 방지)',['4구역부터 외계 기지는 수비대가 살아 있을수록 피해를 덜 받아요 (1~3구역은 보호막 없음)','수비대가 전부 살아 있을 때 받는 피해: 4구역 70% · 5구역 50% · 6구역 30% · 7구역 10% → 수비대를 잡을수록 100%에 가까워져요','보호막이 강할 때(피해 50% 미만) 공격 명령을 받은 로봇은 근처 수비대부터 알아서 정리해요','기지 주변에 파란 보호막이 보이고, 수비대를 잡을수록 옅어져요 · 마우스를 올리면 지금 받는 피해 %가 보여요','기지만 노려서 수비대째 없애는 전략 대신, 수비대를 먼저 정리해야 해요']],
  ['⚔ 전투',['기지 공격 명령을 내리면 로봇들이 기지 앞(포탑 사거리 밖)에 공격 대형으로 모였다가 한꺼번에 돌격해요 (근접 앞 · 원거리 가운데 · 지원 뒤)','지원 로봇은 공격 명령 때 적 기지로 뛰어들지 않고 아군 뒤를 따라가요','여러 로봇에게 이동 명령을 내리면 가장 느린 로봇 속도에 맞춰 같이 움직여요 (진화한 지원 로봇이 혼자 앞서가지 않아요)']],
  ['🗺 미니맵',['미니맵이 화면 크기에 맞춰 커졌어요 (보통 PC 화면에서 약 1.5배)','우리 로봇이 미니맵에 더 크고 밝게 보여요 (전투 로봇 하늘색 · 채굴 주황 · 정찰 연노랑 · 선택한 로봇 노랑)']],
@@ -1710,9 +1710,9 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261124-225258',BUILD='test';if(BUILD==='test')adminOn=true;
-/* ===== 클라우드 계정 (Firebase) · 지금은 테스트 서버에서만 켜짐 ===== */
-const CL=BUILD==='test';
+const APPVER='20261125-000344',BUILD='test';if(BUILD==='test')adminOn=true;
+/* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
+const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
 const SRV=(TCH?'m':'pc')+(BUILD==='test'?'T':''),SRVN=(TCH?'모바일':'PC')+(BUILD==='test'?' 테스트':'')+' 서버';
 const CPK=['sorokT_v1','sorokT_save','sorokT_simcfg'],RMH=BUILD==='test'?12:0,RMTXT='로그인 상태 유지'+(RMH?' ('+RMH+'시간)':''),HAN=/[ㄱ-ㅎㅏ-ㅣ가-힣]/;
@@ -1744,14 +1744,21 @@ async function cConflict(){const s=FB.ses,r=await FB.fs('GET','servers/'+SRV+'/u
  paused=true;let w=$('cfw');if(!w){w=document.createElement('div');w.id='cfw';document.body.appendChild(w)}w.innerHTML='<div class="ubx"><div class="ui">☁</div><div class="ut">다른 기기에서 플레이한 기록이 있어요</div><div class="ud">같은 계정으로 다른 기기에서 진행한 데이터가 더 최신이에요.<br>최신 데이터를 불러와서 다시 시작해요.</div><button id="cfgo">불러오기</button></div>';w.hidden=false;$('cfgo').onclick=go}
 async function cBoot(){if(!FB.ses)return;try{
  if(BUILD==='test'){const t=await FB.fs('GET','testers/'+FB.ses.uid);if(!t.ok){if(t.st===404||t.st===403){lnDenied();return}throw new Error('HTTP '+t.st)}}
+ if(!(await cVerified())){lnVerify();return}
  const r=await FB.fs('GET','servers/'+SRV+'/users/'+FB.ses.uid);if(r.st===404){FB.ses.nick=null;FB.keep();lnNick();return}if(!r.ok)throw new Error('HTTP '+r.st);
  const s=FB.ses;if(r.j.updateTime!==s.ut){cApply(r.j.fields.d&&r.j.fields.d.stringValue);s.ut=r.j.updateTime;s.nick=r.j.fields.nick.stringValue;s.h=cHash(cPack());FB.keep();cReload();return}
  cStat('ok');cPush()}catch(e){const m=String(e&&e.message||'');if(/TOKEN|REFRESH|USER_DISABLED|USER_NOT_FOUND/.test(m)){FB.clear();lnLogin();const x=$('lnerr');if(x)x.textContent=fbErr(e);return}cStat('off')}}
 async function cEnter(rem,nickHint){if(nickHint)FB.ses.pn=nickHint;if(rem&&RMH)FB.ses.rx=Date.now()+RMH*3600e3;FB.store(rem);
  if(BUILD==='test'){const t=await FB.fs('GET','testers/'+FB.ses.uid);if(!t.ok){lnDenied();return}}
+ if(!(await cVerified())){lnVerify();return}
  const r=await FB.fs('GET','servers/'+SRV+'/users/'+FB.ses.uid);if(r.st===404){lnNick(nickHint);return}if(!r.ok)throw new Error((r.j.error&&r.j.error.message)||('HTTP '+r.st));
  const f=r.j.fields,s=FB.ses;s.nick=f.nick.stringValue;s.ut=r.j.updateTime;cStashLocal();cApply(f.d&&f.d.stringValue);s.h=cHash(cPack());FB.keep();cReload()}
 async function cLogout(){try{if(scene==='game'&&!st.lost&&!st.won)saveGame()}catch(e){}try{await cPush(true)}catch(e){}FB.clear();CPK.forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});cReload()}
+async function cVerified(){if(!VERIFY||FB.ses.ev)return true;const j=await FB.idt('lookup',{idToken:await FB.tok()});const u=j.users&&j.users[0];if(u&&u.emailVerified){FB.ses.ev=1;FB.ses.exp=0;await FB.tok();FB.keep();return true}return false}
+const cRem=()=>{try{return !!localStorage.getItem('sorokT_fb')}catch(e){return false}};
+function lnVerify(){const em=FB.ses&&FB.ses.email||'';lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">📧 이메일 인증이 필요해요</div>
+ <ul class="lninfo"><li><b>인증 메일 보낸 곳</b>${pfEsc(em)}</li><li><b>방법</b>메일함(스팸함 포함)의 인증 링크 누르기 → 아래 [인증했어요, 다시 확인]</li><li><b>이유</b>인증한 계정만 플레이 가능</li></ul>
+ <div id="lnerr"></div><div class="lnmenu"><button data-ln="vchk">✅ 인증했어요, 다시 확인</button><button data-ln="vsend">인증 메일 다시 보내기</button><button data-ln="logout">로그아웃</button></div>`)}
 const nickOk=n=>/^[0-9A-Za-z가-힣ㄱ-ㅎㅏ-ㅣ._\-]{2,16}$/.test(n)&&n!=='.'&&n!=='..';
 const lnHero=`<div class="lnhero"><div class="lnlogo">SOROK</div><div class="lnsub">외계 기지 정복 전략</div></div>`;
 function lnNick(hint){hint=hint||(FB.ses&&FB.ses.pn)||'';const L=cLocalSrc();lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">닉네임 정하기</div><div class="lnsrv">${SRVN}</div>
@@ -1776,7 +1783,7 @@ if(CL){
   <li><b>서버</b>PC 서버와 모바일 서버는 청석·스킨·저장·닉네임이 완전히 따로. 지금 접속: ${SRVN}</li>
   ${RMH?'<li><b>로그인 유지</b>테스트 서버는 최대 '+RMH+'시간. 지나면 다시 비밀번호 입력</li>':''}<li><b>저장</b>진행 데이터는 서버에 자동 저장 (약 30초마다 + 게임 저장 시). 다른 기기에서도 이어 하기 가능</li>
   <li><b>비밀번호 분실</b>로그인 탭의 [비밀번호 재설정 메일 받기]</li>
-  ${BUILD==='test'?'<li><b>테스트 서버</b>테스터 명단에 등록된 계정만 입장</li>':''}
+  ${BUILD==='test'?'<li><b>테스트 서버</b>테스터 명단에 등록된 계정만 입장</li>':''}${VERIFY?'<li><b>이메일 인증</b>가입 후 받은 메일의 링크로 인증해야 플레이 가능</li>':''}
   <li><b>버전</b>${APPVER.startsWith('__')?'미리보기':APPVER}</li></ul>`)};
  const _pfUI=pfUI;
  pfUI=function(mode){if(mode==='backup')return _pfUI('backup');let w=$('pfw');if(!w){w=document.createElement('div');w.id='pfw';document.body.appendChild(w);w.addEventListener('click',pfClick);w.addEventListener('keydown',e=>e.stopPropagation())}
@@ -1787,7 +1794,7 @@ if(CL){
    <div class="row2"><button data-cf="sync">지금 저장</button><button data-cf="reset">비밀번호 재설정 메일</button></div>
    <div class="row2"><button data-cf="verify">인증 메일 다시 보내기</button><button data-pf="backup">💾 백업 코드</button></div>
    <div class="row2"><button data-cf="logout">로그아웃</button><button data-pf="close" class="go">닫기</button></div></div>`;
-  FB.tok().then(t=>FB.idt('lookup',{idToken:t})).then(j=>{const u=j.users&&j.users[0],e=$('cver');if(e&&u)e.textContent=u.emailVerified?'✅ 인증됨':'⚠ 미인증'}).catch(()=>{})};
+  FB.tok().then(t=>FB.idt('lookup',{idToken:t})).then(j=>{const u=j.users&&j.users[0],e=$('cver');if(e&&u)e.textContent=u.emailVerified?'✅ 인증됨':'⚠ 미인증'}).catch(err=>{const e=$('cver');if(e)e.textContent='(인증 상태 확인 실패: '+fbErr(err)+')'})};
  const _lnc=lnClick0;
  lnClick0=async function(e){const b=e.target.closest('[data-ln]');if(!b)return;const k=b.dataset.ln,er=t=>{const x=$('lnerr');if(x)x.textContent=t},v=id=>(($(id)||{}).value||'').trim();
   try{
@@ -1802,6 +1809,8 @@ if(CL){
    const L=cLocalSrc(),imp=$('lnimp2')&&$('lnimp2').checked&&L,d=imp?cPack(L.get):'{}';s.nick=n;
    const w=await FB.fs('PATCH','servers/'+SRV+'/users/'+s.uid,cFields(d),'currentDocument.exists=false');if(!w.ok)return er('계정 만들기 실패 ('+w.st+')');
    s.ut=w.j.updateTime;cStashLocal();cApply(d);s.h=cHash(cPack());FB.keep();cReload()}
+  else if(k==='vchk'){er('확인 중…');if(await cVerified()){er('인증 확인! 입장 중…');await cEnter(cRem())}else er('아직 인증이 안 됐어요. 메일의 링크를 누른 뒤 다시 눌러 주세요')}
+  else if(k==='vsend'){await FB.idt('sendOobCode',{requestType:'VERIFY_EMAIL',idToken:await FB.tok()});er('인증 메일을 다시 보냈어요. 스팸함도 확인해 주세요')}
   else if(k==='copyuid'){try{await navigator.clipboard.writeText(FB.ses.uid);b.textContent='복사했어요!'}catch(_){b.textContent=FB.ses.uid}}
   else if(k==='logout'){await cLogout()}
   else if(k==='prof')pfUI('list');
