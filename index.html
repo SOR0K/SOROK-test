@@ -854,7 +854,7 @@ function bgTick(){const id=bgmId(),M=id?MUS[id]:null,dflt=M?M[2]:260;
 (function bgStep(){let t=260;try{t=bgTick()||260}catch(e){}setTimeout(bgStep,t)})();
 function bgPreview(id){try{const a=au();if(a&&a.state!=='running')a.resume()}catch(e){}bgPrev={id,u:performance.now()+15000};bgT=0;const t=TS.find(q=>q.id===id);$('lmsg').textContent='🎵 '+(t?t.n:'')+' 테마곡 미리듣기 중 (15초)'+(SV.mute?' · 음소거를 풀어야 들려요':'')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-tprev]');if(!b)return;e.stopPropagation();bgPreview(b.dataset.tprev)},true);
-const PN=[['11월 25일 업데이트',['🏷 닉네임이 이름#태그로 바뀌었어요 (예: YASR#SR1) · 태그 비우면 #SR1 · PC·모바일 서버 공통','🧪 테섭: 회원가입 없이 관리자가 발급한 테스터 아이디(RDTK.xxxx)·비밀번호로만 로그인','☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','🆕 서버 계정은 모두 처음부터 시작 (예전 기기 데이터 가져오기 없음)']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
+const PN=[['11월 25일 업데이트',['🧭 로봇이 어두운 곳을 가로지르지 않고 밝혀진 길로만 돌아서 다녀요 (정찰 로봇 제외)','🏷 닉네임이 이름#태그로 바뀌었어요 (예: YASR#SR1) · 태그 비우면 #SR1 · PC·모바일 서버 공통','🧪 테섭: 회원가입 없이 관리자가 발급한 테스터 아이디(RDTK.xxxx)·비밀번호로만 로그인','☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','🆕 서버 계정은 모두 처음부터 시작 (예전 기기 데이터 가져오기 없음)']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
  ['🛡 기지 보호막 (백도어 방지)',['4구역부터 외계 기지는 수비대가 살아 있을수록 피해를 덜 받아요 (1~3구역은 보호막 없음)','수비대가 전부 살아 있을 때 받는 피해: 4구역 70% · 5구역 50% · 6구역 30% · 7구역 10% → 수비대를 잡을수록 100%에 가까워져요','보호막이 강할 때(피해 50% 미만) 공격 명령을 받은 로봇은 근처 수비대부터 알아서 정리해요','기지 주변에 파란 보호막이 보이고, 수비대를 잡을수록 옅어져요 · 마우스를 올리면 지금 받는 피해 %가 보여요','기지만 노려서 수비대째 없애는 전략 대신, 수비대를 먼저 정리해야 해요']],
  ['⚔ 전투',['기지 공격 명령을 내리면 로봇들이 기지 앞(포탑 사거리 밖)에 공격 대형으로 모였다가 한꺼번에 돌격해요 (근접 앞 · 원거리 가운데 · 지원 뒤)','지원 로봇은 공격 명령 때 적 기지로 뛰어들지 않고 아군 뒤를 따라가요','여러 로봇에게 이동 명령을 내리면 가장 느린 로봇 속도에 맞춰 같이 움직여요 (진화한 지원 로봇이 혼자 앞서가지 않아요)']],
  ['🗺 미니맵',['미니맵이 화면 크기에 맞춰 커졌어요 (보통 PC 화면에서 약 1.5배)','우리 로봇이 미니맵에 더 크고 밝게 보여요 (전투 로봇 하늘색 · 채굴 주황 · 정찰 연노랑 · 선택한 로봇 노랑)']],
@@ -1033,8 +1033,21 @@ function reset(){
  outs.forEach(o=>{for(let i=0,n=Math.max(2,Math.round([4,5,6,8,10,13,16][Math.min(6,Math.floor(o.dn*7))]*DF[diff].n)),ne=o.ev?Math.max(1,Math.round(n*.25)):0;i<n;i++)st.en.push(mkE(o,Math.random()<.5?'c':'r',i<ne));st.en.push(mkE(o,'k',o.ev>0&&Math.random()<.25))});outs.forEach(o=>{o.dt=st.en.filter(e=>e.o===o).length});
  sel=new Set();cam={x:0,y:W-VH/ZM};msg('정찰 로봇을 만들어 주변을 밝혀 보세요. 정찰 로봇은 연료가 다 떨어지면 고장나니 신중하게 보내세요.');
 }
-function mv(u,tx,ty,dt,free){const d=dist(u.x,u.y,tx,ty);if(d<2)return 0;const s=Math.min(d,(u.spc?Math.min(u.sp,u.spc):u.sp)*(u.oilT>0?1.2:1)*dt),nx=u.x+(tx-u.x)/d*s,ny=u.y+(ty-u.y)/d*s;
- if(!free&&u.t!=='s'&&u.team===0&&!seen(nx,ny))return -1;u.fa=Math.atan2(ny-u.y,nx-u.x);u.x=cl(nx,0,W);u.y=cl(ny,0,W);return d-s}
+/* 암흑을 피해서 밝혀진 칸으로만 다니는 길찾기 (정찰 로봇 제외) */
+const lineSeen=(ax,ay,bx,by)=>{const d=dist(ax,ay,bx,by),n=Math.ceil(d/16);for(let i=1;i<n;i++){const t=i/n;if(!seen(ax+(bx-ax)*t,ay+(by-ay)*t))return false}return true};
+const cellOf=(px,py)=>cl(py/G|0,0,GN-1)*GN+cl(px/G|0,0,GN-1);let PQ=null,PV=null;
+function pfind(sx,sy,gk){const N=GN*GN;if(!PQ){PQ=new Int32Array(N);PV=new Int32Array(N)}PV.fill(-2);const s0=cellOf(sx,sy);let h=0,t=0;PQ[t++]=s0;PV[s0]=-1;
+ const D=[[1,0],[-1,0],[0,1],[0,-1],[1,1],[1,-1],[-1,1],[-1,-1]];
+ while(h<t){const c=PQ[h++];if(c===gk)break;const ci=c%GN,cj=(c/GN)|0;for(const [di,dj] of D){const ni=ci+di,nj=cj+dj;if(ni<0||nj<0||ni>=GN||nj>=GN)continue;const k=nj*GN+ni;if(PV[k]!==-2)continue;if(k!==gk&&!ex[k])continue;if(di&&dj&&(!ex[cj*GN+ni]||!ex[nj*GN+ci]))continue;PV[k]=c;PQ[t++]=k}}
+ if(PV[gk]===-2)return null;const P=[];for(let c=gk;c!==s0&&c>=0;c=PV[c])P.push({x:(c%GN)*G+G/2,y:((c/GN)|0)*G+G/2});return P.reverse()}
+function pathWp(u,tx,ty){const key=(tx|0)+','+(ty|0);if(u._lk===key&&st.t<u._lt)return u._w;u._lk=key;u._lt=st.t+.25;
+ let w=0;if(seen(u.x,u.y)&&!lineSeen(u.x,u.y,tx,ty)){const gk=cellOf(tx,ty);if(!u._pth||u._pk!==gk||st.t>u._pr){u._pk=gk;u._pr=st.t+2;u._pth=pfind(u.x,u.y,gk)}
+  const P=u._pth;if(!P)w=null;else{while(P.length>1&&lineSeen(u.x,u.y,P[1].x,P[1].y))P.shift();w=P.length?P[0]:0}}else u._pth=null;
+ u._w=w;return w}
+function mv(u,tx,ty,dt,free){const fx=tx,fy=ty;let d=dist(u.x,u.y,tx,ty);if(d<2)return 0;
+ if(u.team===0&&u.t!=='s'){const w=pathWp(u,tx,ty);if(w===null)return -1;if(w){tx=w.x;ty=w.y;free=1;d=dist(u.x,u.y,tx,ty);if(d<6){u._lt=0;if(u._pth&&u._pth.length>1)u._pth.shift();return dist(u.x,u.y,fx,fy)}}}
+ const s=Math.min(d,(u.spc?Math.min(u.sp,u.spc):u.sp)*(u.oilT>0?1.2:1)*dt),nx=u.x+(tx-u.x)/d*s,ny=u.y+(ty-u.y)/d*s;
+ if(!free&&u.t!=='s'&&u.team===0&&!seen(nx,ny))return -1;u.fa=Math.atan2(ny-u.y,nx-u.x);u.x=cl(nx,0,W);u.y=cl(ny,0,W);return tx===fx&&ty===fy?d-s:dist(u.x,u.y,fx,fy)}
 function near(u,arr,r){let b=null,bd=r;for(const e of arr){const d=dist(u.x,u.y,e.x,e.y);if(d<bd){bd=d;b=e}}return b}
 function shm(o){if(!o||o.cap||o.s===undefined)return 1;if(o.sht!==undefined&&st.t-o.sht<.25)return o.shc;const n=st.en.reduce((a,e)=>a+(e.o===o?1:0),0);o.dt=Math.max(o.dt||0,n);o.sht=st.t;o.shn=n;const z=Math.min(6,Math.floor(o.dn*7)),f=[1,1,1,.7,.5,.3,.1][z];if(f>=1){o.shc=1;o.sht=st.t;return 1}o.shc=o.dt?f+(1-f)*(1-n/o.dt):1;return o.shc}
 function hit(a,b,d){if(st){a.cbt=st.t;b.cbt=st.t}if(b.s!==undefined&&!b.cap&&a.team===0)d*=shm(b);if(a.base)sfxAt('myturret',a.x,a.y);else if(a.s!==undefined)sfxAt('turret',a.x,a.y);else if(a.team===0)sfxAt(a.rng>40?'shoot':'hit',a.x,a.y);else sfxAt('ehit',a.x,a.y);if(b.t==='k'&&b.team===1&&a.team===0)b.ag=a;a.fa=Math.atan2(b.y-a.y,b.x-a.x);const k=a.team===0?KRO():TKRO();
@@ -1063,9 +1076,9 @@ function ctrl(u,dt){
  if(u.t==='s'){const ox=u.x,oy=u.y;if(u.tx!=null&&mv(u,u.tx,u.ty,dt,1)<=2)u.tx=null;u.f-=dist(ox,oy,u.x,u.y);reveal(u.x,u.y,vis(u));if(u.f<=0){u.hp=0;msg('정찰 로봇의 연료가 떨어져 고장났어요')}return}
  if(u.t==='m'){if(u.mine){const m=u.mine,B=st.B;
    if(m.amt<=0&&u.st!=='back'){if(u.c>0)u.st='back';else{u.mine=null;u.tx=B.x+rnd(-80,80);u.ty=B.y+rnd(-80,80);if(!st.mdm||st.t-st.mdm>6){st.mdm=st.t;msg('⛏ 광산이 바닥나서 채굴 로봇이 기지로 돌아와요. 다른 광산을 지정해 주세요')}}}
-   else if(u.st==='go'){if(mv(u,m.x,m.y,dt,1)<=2){u.st='dig';u.w=3}}
+   else if(u.st==='go'){const r=mv(u,m.x,m.y,dt,1);if(r>=0&&r<=2){u.st='dig';u.w=3}}
    else if(u.st==='dig'){u.w-=dt;if(u.w<=0){const c=Math.min(m.ev?Math.max(1,Math.round(carry(u)/5)):carry(u),m.amt);m.amt-=c;u.c=c;u.st='back'}}
-   else if(mv(u,B.x,B.y,dt,1)<=2){if(u.mine&&u.mine.ev){st.stone+=u.c;u.ms=(u.ms||0)+u.c;SS().stEarn+=u.c}else{const g=u.c*eco();st.ore+=g;u.mo=(u.mo||0)+g;sfxAt('ore',u.x,u.y);SS().earn+=g;st.log.push([st.t,g])}u.c=0;u.st='go';if(u.mine&&u.mine.amt<=0){u.mine=null;u.tx=B.x+rnd(-80,80);u.ty=B.y+rnd(-80,80);if(!st.mdm||st.t-st.mdm>6){st.mdm=st.t;msg('⛏ 광산이 바닥나서 채굴 로봇이 기지에 대기해요. 다른 광산을 지정해 주세요')}}}}
+   else if((r=>r>=0&&r<=2)(mv(u,B.x,B.y,dt,1))){if(u.mine&&u.mine.ev){st.stone+=u.c;u.ms=(u.ms||0)+u.c;SS().stEarn+=u.c}else{const g=u.c*eco();st.ore+=g;u.mo=(u.mo||0)+g;sfxAt('ore',u.x,u.y);SS().earn+=g;st.log.push([st.t,g])}u.c=0;u.st='go';if(u.mine&&u.mine.amt<=0){u.mine=null;u.tx=B.x+rnd(-80,80);u.ty=B.y+rnd(-80,80);if(!st.mdm||st.t-st.mdm>6){st.mdm=st.t;msg('⛏ 광산이 바닥나서 채굴 로봇이 기지에 대기해요. 다른 광산을 지정해 주세요')}}}}
   else if(u.tx!=null&&mv(u,u.tx,u.ty,dt,1)<=2)u.tx=null;return}
  if(u.t==='c'||u.t==='r'){if(u.tgt&&u.tgt.s!==undefined&&!u.tgt.cap&&shm(u.tgt)<.5&&dist(u.x,u.y,u.tgt.x,u.tgt.y)<u.rng+260){const D=near(u,st.en.filter(e=>e.o===u.tgt&&e.hp>0),u.rng+200);if(D){const d=dist(u.x,u.y,D.x,D.y);if(d>u.rng)mv(u,D.x,D.y,dt);else if(u.cd<=0)aAtk(u,D);return}}if(smartAI(u,dt))return}
  if(u.tgt&&(u.tgt.hp<=0||u.tgt.cap))u.tgt=null;
@@ -1296,6 +1309,7 @@ function click(wx,wy){
  const mn=st.mines.find(m=>seen(m.x,m.y)&&m.amt>0&&dist(m.x,m.y,wx,wy)<36);
  if(mn&&us.some(u=>u.t==='m')){let bad=0;us.forEach(u=>{if(u.t==='m'){if(mn.ev&&u.lv<6){bad++;return}u.mine=mn;u.st='go';u.tx=null;u.c=0}});cmdFx('mine',mn.x,mn.y,mn,us.filter(u=>u.t==='m'));if(bad)msg('진화 광산은 6레벨 이상 채굴 로봇만 캘 수 있어요');return}
  if(us.some(u=>u.t!=='s')&&!seen(wx,wy)){msg('어두운 곳으로는 정찰 로봇만 갈 수 있어요');if(!us.every(u=>u.t!=='s'))us.forEach(u=>{if(u.t==='s')u.tx=wx,u.ty=wy});return}
+ {const g=us.find(u=>u.t!=='s');if(g&&seen(g.x,g.y)&&!lineSeen(g.x,g.y,wx,wy)&&!pfind(g.x,g.y,cellOf(wx,wy))){msg('밝혀진 길이 없어서 갈 수 없어요 · 정찰 로봇으로 길을 먼저 밝혀 주세요');return}}
  {const ms=Math.min(...us.filter(u=>u.t!=='s').map(u=>u.sp));us.forEach((u,i)=>{const a=i*2.4,r=i?19*Math.sqrt(i):0;u.tx=wx+Math.cos(a)*r;u.ty=wy+Math.sin(a)*r;u.tgt=null;u.spc=us.length>1&&u.t!=='s'&&isFinite(ms)?ms:0;if(u.t==='m'){u.mine=null;u.c=0}})}cmdFx('mv',wx,wy,null,us)}
 function squad(us,tg){const A=us.filter(u=>u.t!=='h');if(A.length<3||us.every(u=>dist(u.x,u.y,tg.x,tg.y)<420))return;
  const cx=us.reduce((a,u)=>a+u.x,0)/us.length,cy=us.reduce((a,u)=>a+u.y,0)/us.length,d0=dist(cx,cy,tg.x,tg.y)||1,dx=(cx-tg.x)/d0,dy=(cy-tg.y)/d0,px=-dy,py=dx,G={tg,ph:'gather',t0:st.t,m:us,sp:Math.min(...us.map(u=>u.sp))};
@@ -1717,7 +1731,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-012630',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-013210',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
