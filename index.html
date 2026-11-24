@@ -1716,7 +1716,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-004214',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-004708',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
@@ -1831,9 +1831,9 @@ if(CL){
    m('바꾸는 중…');let j;try{j=await FB.idt('signInWithPassword',{email:em,password:o,returnSecureToken:true})}catch(x){return m('지금 비밀번호가 틀렸어요')}FB.setTok(j);const r=await FB.idt('update',{idToken:FB.ses.it,password:p,returnSecureToken:true});FB.setTok(r);FB.keep();pfUI('list');setTimeout(()=>{const x=$('pferr');if(x)x.textContent='비밀번호를 바꿨어요'},30)}}catch(err){m(fbErr(err))}}
 
  if(TID){
-  const idOk=x=>/^RDTK\.\d{4}$/i.test(x);
+  const idOk=x=>/^RDTK\.\d{4}$/.test(x);
   lnLogin=function(){lnShell(lnHero,`${lnTabs('L')}<div class="lnsrv">${SRVN} · 발급받은 테스터 아이디로 로그인</div>
-   <input id="lnid" maxlength="9" placeholder="아이디" autocomplete="username" autocapitalize="characters"><input id="lnpw" type="password" maxlength="32" placeholder="비밀번호" autocomplete="current-password">
+   <input id="lnid" maxlength="9" placeholder="아이디" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false"><input id="lnpw" type="password" maxlength="32" placeholder="비밀번호" autocomplete="current-password">
    <label class="lnchk"><input type="checkbox" id="lnrem" checked> ${RMTXT}</label><div id="lnerr"></div><button data-ln="login" data-ln-enter class="lngo">➜</button>`)};
   lnCreate=lnLogin;
   lnInfo=function(){lnShell(lnHero,`${lnTabs('I')}<div class="lnh">정보</div><ul class="lninfo">
@@ -1849,7 +1849,7 @@ if(CL){
   const _c2=lnClick0;
   lnClick0=async function(e){const b=e.target.closest('[data-ln]');if(!b)return;const k=b.dataset.ln,er=t=>{const x=$('lnerr');if(x)x.textContent=t};
    try{
-   if(k==='login'){const id=(($('lnid')||{}).value||'').trim().toUpperCase(),pw=$('lnpw').value;if(!idOk(id))return er('아이디는 RDTK.숫자4자리 형식이에요 (예: RDTK.1121)');if(!pw)return er('비밀번호를 입력해 주세요');if(HAN.test(pw)){$('lnpw').value='';return er('비밀번호에 한글이 들어갔어요. 키보드를 영어로 바꿔서 다시 입력해 주세요')}
+   if(k==='login'){const id=(($('lnid')||{}).value||'').trim(),pw=$('lnpw').value;if(!id)return er('아이디를 입력해 주세요');if(!pw)return er('비밀번호를 입력해 주세요');if(!idOk(id))return er('아이디 또는 비밀번호가 틀렸어요');if(!pw)return er('비밀번호를 입력해 주세요');if(HAN.test(pw)){$('lnpw').value='';return er('비밀번호에 한글이 들어갔어요. 키보드를 영어로 바꿔서 다시 입력해 주세요')}
     er('로그인 중…');let j;try{j=await FB.idt('signInWithPassword',{email:id.toLowerCase()+TDOM,password:pw,returnSecureToken:true})}catch(x){return er(/INVALID|NOT_FOUND|PASSWORD/.test(String(x.message))?'아이디 또는 비밀번호가 틀렸어요':fbErr(x))}
     FB.ses={};FB.setTok(j);FB.ses.tid=id;await cEnter($('lnrem').checked,id)}
    else if(k==='firstok'){er('입장 준비 중…');const s=FB.ses,id=s.tid;
