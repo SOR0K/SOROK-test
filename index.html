@@ -1478,7 +1478,7 @@ function lnHome(){const u=pfCur(),c=SV.cs||0;lnShell(`<div class="lnhero2"><div 
   <button data-ln="play" data-ln-enter class="lnplay">플레이</button><div class="lnver">버전 ${APPVER.startsWith('__')?'미리보기':APPVER}${BUILD==='test'?' · 🧪 테스트 서버':''}</div></div>`,
  `<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnuser"><i>${pfEsc((u&&u.name||'?')[0])}</i><div><b>${pfEsc(u?u.name:'')}</b><small>청석 ${c.toLocaleString()} · 별석 ${SV.ss||0}</small>${CL?'<small id="cst">'+cStatTxt()+'</small>':''}</div></div>
   <div class="lngame on"><b>SOROK</b><small>외계 기지 정복 전략</small></div>
-  <div class="lnmenu"><button data-ln="prof">👤 계정 관리 · 백업</button><button data-ln="keys">${TCH?'👆 조작법':'⌨ 조작법 (Tab)'}</button><button data-ln="logout">로그아웃</button></div>`)}
+  <div class="lnmenu"><button data-ln="prof">👤 계정 관리${typeof TID!=='undefined'&&TID?'':' · 백업'}</button><button data-ln="keys">${TCH?'👆 조작법':'⌨ 조작법 (Tab)'}</button><button data-ln="logout">로그아웃</button></div>`)}
 async function lnClick(e){try{await lnClick0(e)}catch(err){const w=$('lnw'),x=w&&(w.querySelector('#lnerr')||w.querySelector('.lnside'));if(x){const d=document.createElement('div');d.className='lnbug';d.textContent='오류: '+(err&&err.message||err);x.appendChild(d)}}}
 async function lnClick0(e){const b=e.target.closest('[data-ln]');if(!b)return;const k=b.dataset.ln,P=pfLoad()||{cur:null,list:[],remember:null},er=t=>{const x=$('lnerr');if(x)x.textContent=t};
  if(k==='pick')lnLogin(b.dataset.id);
@@ -1710,7 +1710,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-002830',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-003139',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
@@ -1853,14 +1853,13 @@ if(CL){
     const w=await FB.fs('PATCH','servers/'+SRV+'/users/'+s.uid,cFields(d),'currentDocument.exists=false');if(!w.ok)return er('계정 만들기 실패 ('+w.st+')');
     s.ut=w.j.updateTime;cStashLocal();cApply(d);s.h=cHash(cPack());FB.keep();cReload()}
    else return _c2(e)}catch(err){er(fbErr(err))}};
-  pfUI=function(mode){if(mode==='backup')return _pfUI('backup');let w=$('pfw');if(!w){w=document.createElement('div');w.id='pfw';document.body.appendChild(w);w.addEventListener('click',pfClick);w.addEventListener('keydown',e=>e.stopPropagation())}
+  pfUI=function(mode){let w=$('pfw');if(!w){w=document.createElement('div');w.id='pfw';document.body.appendChild(w);w.addEventListener('click',pfClick);w.addEventListener('keydown',e=>e.stopPropagation())}
    if(!w.dataset.cl){w.dataset.cl=1;w.addEventListener('click',cfClick,true)}
    const s=FB.ses||{};w.hidden=false;w.dataset.mode='cl';
    if(mode==='pw'){w.innerHTML=`<div class="pfb"><div class="pft">🔑 비밀번호 바꾸기</div><input id="cfo" type="password" maxlength="32" placeholder="지금 비밀번호"><input id="cfp" type="password" maxlength="32" placeholder="새 비밀번호 (6~32자)"><input id="cfp2" type="password" maxlength="32" placeholder="새 비밀번호 확인"><div id="pferr" class="cd" style="color:#ff9a8a"></div><div class="row2"><button data-cf="pwok" class="go">바꾸기</button><button data-cf="back">뒤로</button></div></div>`;return}
    w.innerHTML=`<div class="pfb"><div class="pft">👤 테스터 계정</div><ul class="lninfo">
     <li><b>아이디</b>${pfEsc(s.nick||s.tid||'')}</li><li><b>서버</b>${SRVN}</li><li><b>저장 상태</b><span id="cst2">${cStatTxt()}</span></li></ul>
     <div id="pferr" class="cd" style="color:#9fd8a8"></div>
-    <div class="row2"><button data-cf="sync">지금 저장</button><button data-pf="backup">💾 백업 코드</button></div>
     <div class="row2"><button data-cf="logout">로그아웃</button><button data-pf="close" class="go">닫기</button></div></div>`};
  }
  const _sg=saveGame;saveGame=function(){if(window.__cns)return;const r=_sg.apply(this,arguments);setTimeout(()=>cPush(),400);return r};
