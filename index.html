@@ -412,7 +412,7 @@ canvas.bpv{width:92px!important;aspect-ratio:140/84;border-radius:6px}
 #shopw #sp_ctl .ch button{min-height:0;flex-direction:row;padding:4px 9px;font-size:12px;box-shadow:none}
 .cd2{color:#8a9bad;font-size:12.5px;padding:14px 4px}
 .sw-head{user-select:none}
-#updb{position:fixed;inset:0;z-index:996;background:rgba(4,8,12,.72);display:flex;align-items:center;justify-content:center}#updb[hidden]{display:none!important}#cfw{position:fixed;inset:0;z-index:997;background:rgba(4,8,12,.72);display:flex;align-items:center;justify-content:center}#cfw[hidden]{display:none!important}#cfw .ubx{background:linear-gradient(#24313e,#141b22);border:2px solid #5ab0ff;border-radius:14px;padding:22px 30px;text-align:center;color:#d8ecff;max-width:86vw;display:flex;flex-direction:column;align-items:center;zoom:var(--ui,1)}#cfw .ui{font-size:34px}#cfw .ut{font-size:19px;font-weight:800;margin:4px 0 8px}#cfw .ud{font-size:14px;color:#a8bccc;line-height:1.6}#cfw button{margin-top:16px;padding:10px 26px;font-size:15px;font-weight:800;border-radius:9px}#cst{display:block;color:#3a7bd5!important;margin-top:2px}.lnkb{font-size:12.5px;font-weight:700;color:#c47a00;margin:2px 0}.lnkb[hidden]{display:none}.lnsrv{font-size:12px;font-weight:700;color:#3a7bd5;margin:2px 0 4px}.lnuid{font-family:monospace;font-size:11.5px;word-break:break-all;user-select:all}#updb .ubx{background:linear-gradient(#24313e,#141b22);border:2px solid #3ae07a;border-radius:14px;padding:22px 30px;text-align:center;color:#c8ffd8;box-shadow:0 12px 40px rgba(0,0,0,.7);max-width:86vw;zoom:var(--ui,1)}#updb .ui{font-size:34px}#updb .ut{font-size:19px;font-weight:800;margin:4px 0 8px}#updb .ud{font-size:14px;color:#9fb5a8;line-height:1.6}#updb .ubx{display:flex;flex-direction:column;align-items:center}#updb button{display:block;margin:16px auto 0!important;float:none!important;align-self:center;padding:10px 26px;font-size:15px;font-weight:800;border-radius:9px}#updgo{background:linear-gradient(#3ae07a,#1e8a4a)!important;color:#06200f!important;border-color:#9effa8!important}
+#updb{position:fixed;inset:0;z-index:996;background:rgba(4,8,12,.72);display:flex;align-items:center;justify-content:center}#updb[hidden]{display:none!important}#cfw{position:fixed;inset:0;z-index:997;background:rgba(4,8,12,.72);display:flex;align-items:center;justify-content:center}#cfw[hidden]{display:none!important}#cfw .ubx{background:linear-gradient(#24313e,#141b22);border:2px solid #5ab0ff;border-radius:14px;padding:22px 30px;text-align:center;color:#d8ecff;max-width:86vw;display:flex;flex-direction:column;align-items:center;zoom:var(--ui,1)}#cfw .ui{font-size:34px}#cfw .ut{font-size:19px;font-weight:800;margin:4px 0 8px}#cfw .ud{font-size:14px;color:#a8bccc;line-height:1.6}#cfw button{margin-top:16px;padding:10px 26px;font-size:15px;font-weight:800;border-radius:9px}#cst{display:block;color:#3a7bd5!important;margin-top:2px}.lnkb{font-size:12.5px;font-weight:700;color:#c47a00;margin:2px 0}.lnkb[hidden]{display:none}.lnrid{display:flex;align-items:center;gap:6px}.lnrid #lnn{flex:1;min-width:0}.lnrid>b{font-size:18px;color:#6a7480}.lnside .lnrid #lntg{width:84px;flex:none}.lnhint{font-size:11.5px;color:#6a7480;margin:-2px 0 2px}.lntg{font-size:12px;color:#8a929c;font-weight:600;margin-left:3px}.lnsrv{font-size:12px;font-weight:700;color:#3a7bd5;margin:2px 0 4px}.lnuid{font-family:monospace;font-size:11.5px;word-break:break-all;user-select:all}#updb .ubx{background:linear-gradient(#24313e,#141b22);border:2px solid #3ae07a;border-radius:14px;padding:22px 30px;text-align:center;color:#c8ffd8;box-shadow:0 12px 40px rgba(0,0,0,.7);max-width:86vw;zoom:var(--ui,1)}#updb .ui{font-size:34px}#updb .ut{font-size:19px;font-weight:800;margin:4px 0 8px}#updb .ud{font-size:14px;color:#9fb5a8;line-height:1.6}#updb .ubx{display:flex;flex-direction:column;align-items:center}#updb button{display:block;margin:16px auto 0!important;float:none!important;align-self:center;padding:10px 26px;font-size:15px;font-weight:800;border-radius:9px}#updgo{background:linear-gradient(#3ae07a,#1e8a4a)!important;color:#06200f!important;border-color:#9effa8!important}
 
 /* ===== 모바일 ===== */
 #lobby .lb{zoom:var(--ui,1)}#shopw>*,#infow>*,#pausew>*,#defeat>*,#boxw .bxin,#cashw .cbox{zoom:var(--ui,1)}#tut,#msg{zoom:var(--ui,1)}
@@ -854,7 +854,7 @@ function bgTick(){const id=bgmId(),M=id?MUS[id]:null,dflt=M?M[2]:260;
 (function bgStep(){let t=260;try{t=bgTick()||260}catch(e){}setTimeout(bgStep,t)})();
 function bgPreview(id){try{const a=au();if(a&&a.state!=='running')a.resume()}catch(e){}bgPrev={id,u:performance.now()+15000};bgT=0;const t=TS.find(q=>q.id===id);$('lmsg').textContent='🎵 '+(t?t.n:'')+' 테마곡 미리듣기 중 (15초)'+(SV.mute?' · 음소거를 풀어야 들려요':'')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-tprev]');if(!b)return;e.stopPropagation();bgPreview(b.dataset.tprev)},true);
-const PN=[['11월 25일 업데이트',['🏷 닉네임은 계정 하나에 하나: PC·모바일 서버 공통','🧪 테섭: 회원가입 없이 관리자가 발급한 테스터 아이디(RDTK.xxxx)·비밀번호로만 로그인','☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','📦 처음 닉네임 정할 때 이 기기의 예전 계정 데이터(청석·스킨·저장) 가져오기 가능']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
+const PN=[['11월 25일 업데이트',['🏷 닉네임이 이름#태그로 바뀌었어요 (예: YASR#SR1) · 태그 비우면 #SR1 · PC·모바일 서버 공통','🧪 테섭: 회원가입 없이 관리자가 발급한 테스터 아이디(RDTK.xxxx)·비밀번호로만 로그인','☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','📦 처음 닉네임 정할 때 이 기기의 예전 계정 데이터(청석·스킨·저장) 가져오기 가능']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
  ['🛡 기지 보호막 (백도어 방지)',['4구역부터 외계 기지는 수비대가 살아 있을수록 피해를 덜 받아요 (1~3구역은 보호막 없음)','수비대가 전부 살아 있을 때 받는 피해: 4구역 70% · 5구역 50% · 6구역 30% · 7구역 10% → 수비대를 잡을수록 100%에 가까워져요','보호막이 강할 때(피해 50% 미만) 공격 명령을 받은 로봇은 근처 수비대부터 알아서 정리해요','기지 주변에 파란 보호막이 보이고, 수비대를 잡을수록 옅어져요 · 마우스를 올리면 지금 받는 피해 %가 보여요','기지만 노려서 수비대째 없애는 전략 대신, 수비대를 먼저 정리해야 해요']],
  ['⚔ 전투',['기지 공격 명령을 내리면 로봇들이 기지 앞(포탑 사거리 밖)에 공격 대형으로 모였다가 한꺼번에 돌격해요 (근접 앞 · 원거리 가운데 · 지원 뒤)','지원 로봇은 공격 명령 때 적 기지로 뛰어들지 않고 아군 뒤를 따라가요','여러 로봇에게 이동 명령을 내리면 가장 느린 로봇 속도에 맞춰 같이 움직여요 (진화한 지원 로봇이 혼자 앞서가지 않아요)']],
  ['🗺 미니맵',['미니맵이 화면 크기에 맞춰 커졌어요 (보통 PC 화면에서 약 1.5배)','우리 로봇이 미니맵에 더 크고 밝게 보여요 (전투 로봇 하늘색 · 채굴 주황 · 정찰 연노랑 · 선택한 로봇 노랑)']],
@@ -1482,7 +1482,7 @@ function lnInfo(){lnShell(`<div class="lnhero"><div class="lnlogo">SOROK</div><d
 function appExitFn(){const W=window.WebToApk;if(W)for(const n of ['exitApp','closeApp','exit','quitApp','finishApp','finish','close','quit','killApp'])if(typeof W[n]==='function')return ['WebToApk.'+n,()=>W[n]()];try{const A=window.Capacitor&&Capacitor.Plugins&&Capacitor.Plugins.App;if(A&&typeof A.exitApp==='function')return ['Capacitor.App.exitApp',()=>A.exitApp()]}catch(_){}return null}
 function lnHome(){const u=pfCur(),c=SV.cs||0;lnShell(`<div class="lnhero2"><div class="lntag">GAME</div><div class="lnlogo">SOROK</div><div class="lnsub">외계 기지 50개를 정복하라 · 시즌 1 은하 원정</div>
   <button data-ln="play" data-ln-enter class="lnplay">플레이</button><div class="lnver">버전 ${APPVER.startsWith('__')?'미리보기':APPVER}${BUILD==='test'?' · 🧪 테스트 서버':''}</div></div>`,
- `<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnuser"><i>${pfEsc((u&&u.name||'?')[0])}</i><div><b>${pfEsc(u?u.name:'')}</b><small>청석 ${c.toLocaleString()} · 별석 ${SV.ss||0}</small>${CL?'<small id="cst">'+cStatTxt()+'</small>':''}</div></div>
+ `<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnuser"><i>${pfEsc((u&&u.name||'?')[0])}</i><div><b><span class="lnnm">${pfEsc(u?u.name:'')}</span>${CL&&FB.ses&&FB.ses.tag?'<span class="lntg">#'+pfEsc(FB.ses.tag)+'</span>':''}</b><small>청석 ${c.toLocaleString()} · 별석 ${SV.ss||0}</small>${CL?'<small id="cst">'+cStatTxt()+'</small>':''}</div></div>
   <div class="lngame on"><b>SOROK</b><small>외계 기지 정복 전략</small></div>
   <div class="lnmenu"><button data-ln="prof">👤 계정 관리${typeof TID!=='undefined'&&TID?'':' · 백업'}</button><button data-ln="keys">${TCH?'👆 조작법':'⌨ 조작법 (Tab)'}</button><button data-ln="logout">로그아웃</button></div>`)}
 async function lnClick(e){try{await lnClick0(e)}catch(err){const w=$('lnw'),x=w&&(w.querySelector('#lnerr')||w.querySelector('.lnside'));if(x){const d=document.createElement('div');d.className='lnbug';d.textContent='오류: '+(err&&err.message||err);x.appendChild(d)}}}
@@ -1716,7 +1716,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-005506',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-010600',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
@@ -1740,7 +1740,7 @@ const cStashLocal=()=>{try{if(localStorage.getItem('sorokT_clx'))return;const P=
 let cBusy=0,cState='';const cReload=()=>{window.__cns=1;location.reload()};
 const cStat=s=>{cState=s;const e=$('cst');if(e)e.textContent=cStatTxt()};
 const cStatTxt=()=>'☁ '+SRVN+' · '+({ok:'저장됨',sync:'저장 중…',off:'오프라인 (나중에 저장)',err:'저장 실패',conf:'다른 기기 데이터 확인 중'}[cState]||'연결됨');
-const cFields=d=>({fields:{nick:{stringValue:FB.ses.nick},d:{stringValue:d},t:{integerValue:String(Date.now())},email:{stringValue:FB.ses.email||''}}});
+const cFields=d=>({fields:{nick:{stringValue:FB.ses.nick},...(FB.ses.tag?{tag:{stringValue:FB.ses.tag}}:{}),d:{stringValue:d},t:{integerValue:String(Date.now())},email:{stringValue:FB.ses.email||''}}});
 async function cPush(force){const s=FB.ses;if(!CL||!s||!s.nick||cBusy)return;const d=cPack(),h=cHash(d);if(!force&&h===s.h)return;cBusy=1;cStat('sync');
  try{const q=s.ut?'currentDocument.updateTime='+encodeURIComponent(s.ut):'currentDocument.exists=false';const r=await FB.fs('PATCH','servers/'+SRV+'/users/'+s.uid,cFields(d),q);
   if(r.ok){s.ut=r.j.updateTime;s.h=h;FB.keep();cStat('ok')}else if(r.st===400||r.st===409||r.st===404){cStat('conf');await cConflict()}else cStat('err')}catch(e){cStat('off')}cBusy=0}
@@ -1752,36 +1752,42 @@ async function cBoot(){if(!FB.ses)return;try{
  if(BUILD==='test'){const t=await FB.fs('GET','testers/'+FB.ses.uid);if(!t.ok){if(t.st===404||t.st===403){lnDenied();return}throw new Error('HTTP '+t.st)}}
  if(!(await cVerified())){lnVerify();return}
  const r=await FB.fs('GET','servers/'+SRV+'/users/'+FB.ses.uid);if(r.st===404){FB.ses.nick=null;FB.keep();lnNick();return}if(!r.ok)throw new Error('HTTP '+r.st);
- const s=FB.ses;if(r.j.updateTime!==s.ut){cApply(r.j.fields.d&&r.j.fields.d.stringValue);s.ut=r.j.updateTime;s.nick=r.j.fields.nick.stringValue;s.h=cHash(cPack());FB.keep();cReload();return}
+ const s=FB.ses;if(r.j.updateTime!==s.ut){cApply(r.j.fields.d&&r.j.fields.d.stringValue);s.ut=r.j.updateTime;s.nick=r.j.fields.nick.stringValue;s.tag=r.j.fields.tag?r.j.fields.tag.stringValue:s.tag;s.h=cHash(cPack());FB.keep();cReload();return}
  cStat('ok');cPush();cEnsureAcct()}catch(e){const m=String(e&&e.message||'');if(/TOKEN|REFRESH|USER_DISABLED|USER_NOT_FOUND/.test(m)){FB.clear();lnLogin();const x=$('lnerr');if(x)x.textContent=fbErr(e);return}cStat('off')}}
 async function cEnter(rem,nickHint){if(nickHint)FB.ses.pn=nickHint;if(rem&&RMH)FB.ses.rx=Date.now()+RMH*3600e3;FB.store(rem);
  if(BUILD==='test'){const t=await FB.fs('GET','testers/'+FB.ses.uid);if(!t.ok){lnDenied();return}}
  if(!(await cVerified())){lnVerify();return}
  const r=await FB.fs('GET','servers/'+SRV+'/users/'+FB.ses.uid);if(r.st===404){lnNick(nickHint);return}if(!r.ok)throw new Error((r.j.error&&r.j.error.message)||('HTTP '+r.st));
- const f=r.j.fields,s=FB.ses;s.nick=f.nick.stringValue;s.ut=r.j.updateTime;cStashLocal();cApply(f.d&&f.d.stringValue);s.h=cHash(cPack());FB.keep();cReload()}
+ const f=r.j.fields,s=FB.ses;s.nick=f.nick.stringValue;s.tag=f.tag?f.tag.stringValue:undefined;s.ut=r.j.updateTime;cStashLocal();cApply(f.d&&f.d.stringValue);s.h=cHash(cPack());FB.keep();cReload()}
 async function cLogout(){try{if(scene==='game'&&!st.lost&&!st.won)saveGame()}catch(e){}try{await cPush(true)}catch(e){}FB.clear();CPK.forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});cReload()}
 async function cVerified(){if(!VERIFY||FB.ses.ev)return true;const j=await FB.idt('lookup',{idToken:await FB.tok()});const u=j.users&&j.users[0];if(u&&u.emailVerified){FB.ses.ev=1;FB.ses.exp=0;await FB.tok();FB.keep();return true}return false}
 const cRem=()=>{try{return !!localStorage.getItem('sorokT_fb')}catch(e){return false}};
 function lnVerify(){const em=FB.ses&&FB.ses.email||'';lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">📧 이메일 인증이 필요해요</div>
  <ul class="lninfo"><li><b>인증 메일 보낸 곳</b>${pfEsc(em)}</li><li><b>방법</b>메일함(스팸함 포함)의 인증 링크 누르기 → 아래 [인증했어요, 다시 확인]</li><li><b>이유</b>인증한 계정만 플레이 가능</li></ul>
  <div id="lnerr"></div><div class="lnmenu"><button data-ln="vchk">✅ 인증했어요, 다시 확인</button><button data-ln="vsend">인증 메일 다시 보내기</button><button data-ln="logout">로그아웃</button></div>`)}
+const DTAG='SR1',ulen=x=>[...x].length,normN=x=>(x||'').normalize('NFC').trim().replace(/\s+/g,' ');
+const nameOk=n=>ulen(n)>=3&&ulen(n)<=16&&/^[\p{L}\p{N}](?:[\p{L}\p{N}\p{M} ._\-]*[\p{L}\p{N}\p{M}])?$/u.test(n);
+const tagOk=t=>ulen(t)>=3&&ulen(t)<=5&&/^[\p{L}\p{N}\p{M}]+$/u.test(t);
+const NERR='이름은 3~16자예요 (모든 언어·숫자, 띄어쓰기·. _ - 가능)',TERR='태그는 3~5자예요 (모든 언어·숫자)';
+const rKey=(n,t)=>(n+'#'+t).normalize('NFC').toLocaleLowerCase();
+const nickRow=(n,t)=>`<div class="lnrid"><input id="lnn" maxlength="16" placeholder="이름 (3~16자)" value="${pfEsc(n||'')}" autocomplete="off"><b>#</b><input id="lntg" maxlength="5" placeholder="${DTAG}" value="${pfEsc(t||'')}" autocomplete="off"></div><div class="lnhint">태그를 비우면 #${DTAG} · 모든 서버 공통</div>`;
 const nickOk=n=>/^[0-9A-Za-z가-힣ㄱ-ㅎㅏ-ㅣ._\-]{2,16}$/.test(n)&&n!=='.'&&n!=='..';
 const lnHero=`<div class="lnhero"><div class="lnlogo">SOROK</div><div class="lnsub">외계 기지 정복 전략</div></div>`;
-function lnNick(hint){hint=hint||(FB.ses&&FB.ses.pn)||'';const L=cLocalSrc();
- const draw=an=>lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">${an?'새 서버 첫 입장':'닉네임 정하기'}</div><div class="lnsrv">${SRVN}</div>
- ${an?`<ul class="lninfo"><li><b>닉네임 (모든 서버 공통)</b>${pfEsc(an)}</li></ul><input id="lnn" type="hidden" value="${pfEsc(an)}">`:`<input id="lnn" maxlength="16" placeholder="닉네임 (2~16자 · 모든 서버 공통)" value="${pfEsc(hint||'')}" autocomplete="off">`}
+function lnNick(hint){hint=hint||(FB.ses&&FB.ses.pn)||'';const hp=String(hint).split('#'),L=cLocalSrc();
+ const draw=(an,at)=>lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">${an?'새 서버 첫 입장':'닉네임 정하기'}</div><div class="lnsrv">${SRVN}</div>
+ ${an?`<ul class="lninfo"><li><b>닉네임 (모든 서버 공통)</b>${pfEsc(an)}<span class="lntg">#${pfEsc(at||DTAG)}</span></li></ul><input id="lnn" type="hidden" value="${pfEsc(an)}"><input id="lntg" type="hidden" value="${pfEsc(at||DTAG)}">`:(VERIFY?nickRow(hp[0],hp[1]):`<input id="lnn" maxlength="16" placeholder="닉네임 (2~16자)" value="${pfEsc(hp[0]||'')}" autocomplete="off">`)}
  ${L?`<label class="lnchk"><input type="checkbox" id="lnimp2" checked> 이 기기 계정 '${pfEsc(L.name)}'의 청석·스킨·저장 가져오기</label>`:''}
  <div id="lnerr"></div><button data-ln="nickok" data-ln-enter class="lngo">➜</button><div class="lnlinks"><button data-ln="logout">로그아웃</button></div>`);
  if(!VERIFY||!FB.ses){draw(null);return}
  lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">불러오는 중…</div>`);
- FB.fs('GET','accounts/'+FB.ses.uid).then(r=>{const an=r.ok&&r.j.fields&&r.j.fields.nick?r.j.fields.nick.stringValue:null;FB.ses.an=an;draw(an)}).catch(()=>draw(null))}
-async function cClaimNick(n){const s=FB.ses,nid=encodeURIComponent(n.toLowerCase());
+ FB.fs('GET','accounts/'+FB.ses.uid).then(r=>{const f=r.ok&&r.j.fields,an=f&&f.nick?f.nick.stringValue:null,at=an?(f.tag?f.tag.stringValue:DTAG):null;FB.ses.an=an;FB.ses.at=at;draw(an,at)}).catch(()=>draw(null))}
+async function cClaimNick(n,t){t=t||DTAG;const s=FB.ses,nid=encodeURIComponent(rKey(n,t));
  const g=await FB.fs('GET','nicks/'+nid);if(g.st===403)return 'legacy';if(g.ok&&g.j.fields&&g.j.fields.uid.stringValue!==s.uid)return 'taken';
- if(!g.ok){const c=await FB.fs('POST','nicks',{fields:{uid:{stringValue:s.uid},n:{stringValue:n}}},'documentId='+nid);if(!c.ok)return c.st===409?'taken':'fail:'+c.st}
- const a=await FB.fs('PATCH','accounts/'+s.uid,{fields:{nick:{stringValue:n}}});if(!a.ok)return 'fail:'+a.st;s.an=n;return 'ok'}
+ if(!g.ok){const c=await FB.fs('POST','nicks',{fields:{uid:{stringValue:s.uid},n:{stringValue:n},t:{stringValue:t}}},'documentId='+nid);if(!c.ok)return c.st===409?'taken':'fail:'+c.st}
+ const a=await FB.fs('PATCH','accounts/'+s.uid,{fields:{nick:{stringValue:n},tag:{stringValue:t}}});if(!a.ok)return 'fail:'+a.st;s.an=n;s.at=t;return 'ok'}
 async function cEnsureAcct(){const s=FB.ses;if(!VERIFY||!s||!s.nick)return;try{
- if(!s.an){const r=await FB.fs('GET','accounts/'+s.uid);if(r.ok&&r.j.fields&&r.j.fields.nick)s.an=r.j.fields.nick.stringValue;else if(r.st===404){const x=await cClaimNick(s.nick);if(x!=='ok')return}else return}
- if(s.an&&s.nick!==s.an){s.nick=s.an;FB.keep();cPush(true);const e=document.querySelector('.lnuser b');if(e)e.textContent=s.an}else FB.keep()}catch(e){}}
+ if(!s.an){const r=await FB.fs('GET','accounts/'+s.uid);if(r.ok&&r.j.fields&&r.j.fields.nick){s.an=r.j.fields.nick.stringValue;s.at=r.j.fields.tag?r.j.fields.tag.stringValue:DTAG}else if(r.st===404){const x=await cClaimNick(s.nick,s.tag||DTAG);if(x!=='ok')return}else return}
+ s.at=s.at||DTAG;if(s.an&&(s.nick!==s.an||s.tag!==s.at)){s.nick=s.an;s.tag=s.at;FB.keep();cPush(true);const e=document.querySelector('.lnuser b');if(e)e.innerHTML='<span class="lnnm">'+pfEsc(s.an)+'</span><span class="lntg">#'+pfEsc(s.at)+'</span>'}else FB.keep()}catch(e){}}
 function lnDenied(){const u=FB.ses?FB.ses.uid:'';lnShell(lnHero,`<div class="lnbrand">◆ SOROK CLIENT</div><div class="lnh">🔒 테스트 서버 권한 없음</div>
  <ul class="lninfo"><li><b>입장 불가</b>테스터 명단에 없는 계정</li><li><b>내 계정 ID</b><span class="lnuid">${pfEsc(u)}</span></li><li><b>권한 받기</b>위 계정 ID를 관리자에게 전달 → 명단 등록 후 다시 로그인</li></ul>
  <div class="lnmenu"><button data-ln="copyuid">계정 ID 복사</button><button data-ln="logout">로그아웃</button></div>`)}
@@ -1793,20 +1799,20 @@ if(CL){
   <label class="lnchk"><input type="checkbox" id="lnrem" checked> ${RMTXT}</label><div id="lnerr"></div><button data-ln="login" data-ln-enter class="lngo">➜</button>
   <div class="lnlinks"><button data-ln="reset">비밀번호 재설정 메일 받기</button></div>`)};
  lnCreate=function(){lnShell(lnHero,`${lnTabs('N')}<div class="lnsrv">${SRVN}</div>
-  <input id="lne" type="email" maxlength="80" placeholder="이메일" autocomplete="email"><input id="lnpw" type="password" maxlength="32" placeholder="비밀번호 (6~32자)" autocomplete="new-password"><input id="lnpw2" type="password" maxlength="32" placeholder="비밀번호 확인" autocomplete="new-password"><input id="lnn" maxlength="16" placeholder="닉네임 (2~16자)" autocomplete="off">
+  <input id="lne" type="email" maxlength="80" placeholder="이메일" autocomplete="email"><input id="lnpw" type="password" maxlength="32" placeholder="비밀번호 (6~32자)" autocomplete="new-password"><input id="lnpw2" type="password" maxlength="32" placeholder="비밀번호 확인" autocomplete="new-password">${nickRow()}
   <label class="lnchk"><input type="checkbox" id="lnrem" checked> ${RMTXT}</label><div id="lnerr"></div><button data-ln="create" data-ln-enter class="lngo">➜</button>`)};
  lnInfo=function(){lnShell(lnHero,`${lnTabs('I')}<div class="lnh">정보</div><ul class="lninfo">
   <li><b>계정</b>이메일 + 비밀번호. 하나의 계정으로 PC·모바일 모두 로그인</li>
   <li><b>서버</b>PC 서버와 모바일 서버는 청석·스킨·저장·닉네임이 완전히 따로. 지금 접속: ${SRVN}</li>
   ${RMH?'<li><b>로그인 유지</b>테스트 서버는 최대 '+RMH+'시간. 지나면 다시 비밀번호 입력</li>':''}<li><b>저장</b>진행 데이터는 서버에 자동 저장 (약 30초마다 + 게임 저장 시). 다른 기기에서도 이어 하기 가능</li>
   <li><b>비밀번호 분실</b>로그인 탭의 [비밀번호 재설정 메일 받기]</li>
-  ${BUILD==='test'?'<li><b>테스트 서버</b>테스터 명단에 등록된 계정만 입장</li>':''}${VERIFY?'<li><b>이메일 인증</b>가입 후 받은 메일의 링크로 인증해야 플레이 가능</li>':''}
+  ${BUILD==='test'?'<li><b>테스트 서버</b>테스터 명단에 등록된 계정만 입장</li>':''}${VERIFY?'<li><b>닉네임</b>이름#태그 (예: YASR#SR1). 모든 서버 공통 · 대소문자만 다른 같은 이름#태그는 불가 · 이름 3~16자, 태그 3~5자 (모든 언어)</li>':''}${VERIFY?'<li><b>이메일 인증</b>가입 후 받은 메일의 링크로 인증해야 플레이 가능</li>':''}
   <li><b>버전</b>${APPVER.startsWith('__')?'미리보기':APPVER}</li></ul>`)};
  const _pfUI=pfUI;
  pfUI=function(mode){if(mode==='backup')return _pfUI('backup');let w=$('pfw');if(!w){w=document.createElement('div');w.id='pfw';document.body.appendChild(w);w.addEventListener('click',pfClick);w.addEventListener('keydown',e=>e.stopPropagation())}
   if(!w.dataset.cl){w.dataset.cl=1;w.addEventListener('click',cfClick,true)}
   const s=FB.ses||{};w.hidden=false;w.dataset.mode='cl';w.innerHTML=`<div class="pfb"><div class="pft">👤 계정 관리</div><ul class="lninfo">
-   <li><b>이메일</b>${pfEsc(s.email||'')} <span id="cver" class="cd"></span></li><li><b>닉네임</b>${pfEsc(s.nick||'')} · ${SRVN}</li><li><b>저장 상태</b><span id="cst2">${cStatTxt()}</span></li></ul>
+   <li><b>이메일</b>${pfEsc(s.email||'')} <span id="cver" class="cd"></span></li><li><b>닉네임 (모든 서버 공통)</b>${pfEsc(s.nick||'')}${s.tag?'#'+pfEsc(s.tag):''}</li><li><b>서버</b>${SRVN}</li><li><b>저장 상태</b><span id="cst2">${cStatTxt()}</span></li></ul>
    <div id="pferr" class="cd" style="color:#9fd8a8"></div>
    <div class="row2"><button data-cf="sync">지금 저장</button><button data-cf="reset">비밀번호 재설정 메일</button></div>
    <div class="row2"><button data-cf="verify">인증 메일 다시 보내기</button><button data-pf="backup">💾 백업 코드</button></div>
@@ -1817,14 +1823,14 @@ if(CL){
   try{
   if(k==='tabL'||k==='back')lnLogin();else if(k==='tabN'||k==='new')lnCreate();else if(k==='tabI')lnInfo();
   else if(k==='login'){const em=v('lne'),pw=$('lnpw').value;if(!em)return er('이메일을 입력해 주세요');if(!pw)return er('비밀번호를 입력해 주세요');if(HAN.test(pw)){$('lnpw').value='';return er('비밀번호에 한글이 들어갔어요. 키보드를 영어로 바꿔서 다시 입력해 주세요')}er('로그인 중…');const j=await FB.idt('signInWithPassword',{email:em,password:pw,returnSecureToken:true});FB.ses={};FB.setTok(j);await cEnter($('lnrem').checked)}
-  else if(k==='create'){const em=v('lne'),pw=$('lnpw').value,pw2=$('lnpw2').value,n=v('lnn');if(!em)return er('이메일을 입력해 주세요');if(HAN.test(pw))return er('비밀번호에는 한글을 쓸 수 없어요. 키보드를 영어로 바꿔 주세요');if(pw.length<6||pw.length>32)return er('비밀번호는 6~32자로 해 주세요');if(pw!==pw2)return er('비밀번호 확인이 달라요');if(!nickOk(n))return er('닉네임은 2~16자 (한글·영문·숫자·. _ -)');
-   er('가입 중…');const j=await FB.idt('signUp',{email:em,password:pw,returnSecureToken:true});FB.ses={};FB.setTok(j);try{await FB.idt('sendOobCode',{requestType:'VERIFY_EMAIL',idToken:FB.ses.it})}catch(_){}await cEnter($('lnrem').checked,n)}
+  else if(k==='create'){const em=v('lne'),pw=$('lnpw').value,pw2=$('lnpw2').value,n=normN(v('lnn')),tg=normN(v('lntg'))||DTAG;if(!em)return er('이메일을 입력해 주세요');if(HAN.test(pw))return er('비밀번호에는 한글을 쓸 수 없어요. 키보드를 영어로 바꿔 주세요');if(pw.length<6||pw.length>32)return er('비밀번호는 6~32자로 해 주세요');if(pw!==pw2)return er('비밀번호 확인이 달라요');if(!nameOk(n))return er(NERR);if(!tagOk(tg))return er(TERR);
+   er('가입 중…');const j=await FB.idt('signUp',{email:em,password:pw,returnSecureToken:true});FB.ses={};FB.setTok(j);try{await FB.idt('sendOobCode',{requestType:'VERIFY_EMAIL',idToken:FB.ses.it})}catch(_){}await cEnter($('lnrem').checked,n+'#'+tg)}
   else if(k==='reset'){const em=v('lne');if(!em)return er('위 칸에 이메일을 먼저 입력해 주세요');await FB.idt('sendOobCode',{requestType:'PASSWORD_RESET',email:em});er('재설정 메일을 보냈어요. 메일함(스팸함 포함)을 확인해 주세요')}
-  else if(k==='nickok'){const n=v('lnn');if(!nickOk(n))return er('닉네임은 2~16자 (한글·영문·숫자·. _ -)');er('확인 중…');const s=FB.ses,nid=encodeURIComponent(n.toLowerCase());
-   const cr=s.an===n?'ok':await cClaimNick(n);if(cr==='taken')return er('이미 있는 닉네임이에요');if(cr.startsWith('fail'))return er('닉네임 등록 실패 ('+cr.slice(5)+')');
+  else if(k==='nickok'){const n=normN(v('lnn')),tg=normN(v('lntg'))||DTAG;if(VERIFY){if(!nameOk(n))return er(NERR);if(!tagOk(tg))return er(TERR)}else if(!nickOk(n))return er('닉네임은 2~16자 (한글·영문·숫자·. _ -)');er('확인 중…');const s=FB.ses,nid=encodeURIComponent(VERIFY?rKey(n,tg):n.toLowerCase());
+   const cr=!VERIFY?'legacy':(s.an===n&&(s.at||DTAG)===tg?'ok':await cClaimNick(n,tg));if(cr==='taken')return er('이미 있는 이름#태그예요. 태그를 바꿔 보세요');if(cr.startsWith('fail'))return er('닉네임 등록 실패 ('+cr.slice(5)+')');
    if(cr==='legacy'){const g=await FB.fs('GET','servers/'+SRV+'/nicks/'+nid);if(g.ok&&g.j.fields&&g.j.fields.uid.stringValue!==s.uid)return er('이미 있는 닉네임이에요');
    if(!g.ok){const c=await FB.fs('POST','servers/'+SRV+'/nicks',{fields:{uid:{stringValue:s.uid},n:{stringValue:n}}},'documentId='+nid);if(!c.ok)return er(c.st===409?'이미 있는 닉네임이에요':'닉네임 등록 실패 ('+c.st+')')}}
-   const L=cLocalSrc(),imp=$('lnimp2')&&$('lnimp2').checked&&L,d=imp?cPack(L.get):'{}';s.nick=n;
+   const L=cLocalSrc(),imp=$('lnimp2')&&$('lnimp2').checked&&L,d=imp?cPack(L.get):'{}';s.nick=n;if(VERIFY)s.tag=tg;
    const w=await FB.fs('PATCH','servers/'+SRV+'/users/'+s.uid,cFields(d),'currentDocument.exists=false');if(!w.ok)return er('계정 만들기 실패 ('+w.st+')');
    s.ut=w.j.updateTime;cStashLocal();cApply(d);s.h=cHash(cPack());FB.keep();cReload()}
   else if(k==='vchk'){er('확인 중…');if(await cVerified()){er('인증 확인! 입장 중…');await cEnter(cRem())}else er('아직 인증이 안 됐어요. 메일의 링크를 누른 뒤 다시 눌러 주세요')}
