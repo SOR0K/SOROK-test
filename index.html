@@ -367,6 +367,19 @@ canvas.bpv{width:92px!important;aspect-ratio:140/84;border-radius:6px}
 .pnv{border:1px solid #2b3640;border-radius:8px;padding:10px 14px;margin:8px 0;background:#10161c}.pnv>b{color:#ffd76a;font-size:15px}.pnv h4{margin:10px 0 4px;font-size:13.5px;color:#e8c36a}.pnv ul{margin:0;padding-left:20px;font-size:13px;line-height:1.65;color:#c8d2da}
 #lobby .card .tpv{margin-top:4px;font-size:12px;padding:5px 8px;border-left-width:1px;background:#16202a}
 #pfw{position:fixed;inset:0;z-index:97;background:rgba(4,8,12,.78);display:flex;align-items:center;justify-content:center;padding:16px}#pfw[hidden]{display:none}
+.acx{gap:12px!important;width:min(460px,100%)!important}
+.axh{display:flex;align-items:center;gap:14px;padding:14px;background:#1a2430;border:1px solid #2c3a49;border-radius:12px}
+.axav{flex:0 0 52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:#1c1406;background:linear-gradient(135deg,#ffe08a,#c9962f)}
+.axid{min-width:0}.axn{font-size:22px;font-weight:800;color:#fff;line-height:1.2;word-break:break-all}.axn span{color:#8fa3b5;font-weight:600;margin-left:2px}
+.axe{font-size:13.5px;color:#aab8c5;margin-top:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;word-break:break-all}
+.axv{font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:#2a3542;color:#aab8c5;white-space:nowrap}.axv.ok{background:#1d4a2e;color:#8ee4a8}.axv.no{background:#5a3a12;color:#ffc46b}
+.axr{display:grid;grid-template-columns:1fr 1fr auto;gap:10px;align-items:center;padding:12px 14px;background:#1a2430;border:1px solid #2c3a49;border-radius:12px}
+.axr small{display:block;font-size:12px;color:#7f93a6;margin-bottom:3px}.axr b{font-size:15px;color:#e6edf3;font-weight:700;display:flex;align-items:center;gap:6px}
+.axr i{width:9px;height:9px;border-radius:50%;background:#7f93a6;display:inline-block}.axr i.ok{background:#4fd17a}.axr i.sync{background:#ffd76a}.axr i.err,.axr i.off,.axr i.conf{background:#ff8a6b}
+.pfb button.axs{flex:none;padding:8px 12px;font-size:13px}
+.axm{font-size:13px;color:#9fd8a8;text-align:center}.axm:empty{display:none}
+.axg{display:flex;flex-direction:column;gap:8px}.pfb .axg button{text-align:left;justify-content:flex-start;padding:12px 14px;font-size:14.5px}
+.axf{margin-top:2px}.pfb button.axo{color:#ff9a8a;border-color:#5a2d2d;background:#22171a}
 .pfb{background:#121a22;border:1px solid #c9a255;border-radius:14px;padding:20px 22px;width:min(420px,100%);box-shadow:0 20px 60px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:10px}.pfb.wide{width:min(620px,100%)}
 .pft{font-size:20px;font-weight:800;color:#ffd76a}.pft small{font-size:12px;color:#8a9bad;font-weight:500;margin-left:8px}
 .pfb input,.pfb textarea{background:#0b1015;border:1px solid #33414d;color:#e6edf3;padding:10px 12px;font-size:15px;border-radius:8px;width:100%;box-sizing:border-box}.pfb textarea{height:84px;font-size:11px;resize:vertical;font-family:monospace}
@@ -854,7 +867,7 @@ function bgTick(){const id=bgmId(),M=id?MUS[id]:null,dflt=M?M[2]:260;
 (function bgStep(){let t=260;try{t=bgTick()||260}catch(e){}setTimeout(bgStep,t)})();
 function bgPreview(id){try{const a=au();if(a&&a.state!=='running')a.resume()}catch(e){}bgPrev={id,u:performance.now()+15000};bgT=0;const t=TS.find(q=>q.id===id);$('lmsg').textContent='🎵 '+(t?t.n:'')+' 테마곡 미리듣기 중 (15초)'+(SV.mute?' · 음소거를 풀어야 들려요':'')}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-tprev]');if(!b)return;e.stopPropagation();bgPreview(b.dataset.tprev)},true);
-const PN=[['11월 25일 업데이트',['🧭 로봇이 어두운 곳을 가로지르지 않고 밝혀진 길로만 돌아서 다녀요 (정찰 로봇 제외)','🏷 닉네임이 이름#태그로 바뀌었어요 (예: YASR#SR1) · 태그 비우면 #SR1 · PC·모바일 서버 공통','🧪 테섭: 회원가입 없이 관리자가 발급한 테스터 아이디(RDTK.xxxx)·비밀번호로만 로그인','☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','🆕 서버 계정은 모두 처음부터 시작 (예전 기기 데이터 가져오기 없음)']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
+const PN=[['11월 25일 업데이트',['🌌 게임을 켜면 SOROMA GAMES 인트로와 SOROK 로고가 나와요','👤 계정 관리 창을 보기 쉽게 새로 꾸몄어요 (인증 메일 버튼은 미인증일 때만 보여요)','🧭 로봇이 어두운 곳을 가로지르지 않고 밝혀진 길로만 돌아서 다녀요 (정찰 로봇 제외)','🏷 닉네임이 이름#태그로 바뀌었어요 (예: YASR#SR1) · 태그 비우면 #SR1 · PC·모바일 서버 공통','🧪 테섭: 회원가입 없이 관리자가 발급한 테스터 아이디(RDTK.xxxx)·비밀번호로만 로그인','☁ 서버 계정 도입: 이메일로 회원가입 · 로그인, 진행 데이터가 서버에 자동 저장돼서 다른 기기에서도 이어 하기','📧 가입 후 이메일 인증을 해야 플레이 가능','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로, 계정은 하나)','🆕 서버 계정은 모두 처음부터 시작 (예전 기기 데이터 가져오기 없음)']],['11월 24일 밤 업데이트 (테섭)',['⏱ 테스트 서버 로그인 상태 유지는 최대 12시간','⌨ 비밀번호에 한글이 섞이면 알려 줘요','☁ 테스트 서버에 서버 계정 도입: 이메일 가입 · 로그인, 진행 데이터 서버 자동 저장, 다른 기기에서 이어 하기','🖥📱 PC 서버 / 모바일 서버 분리 (청석·스킨·저장·닉네임 따로)','🔒 테스트 서버는 테스터 명단에 등록된 계정만 입장']],['11월 23일 저녁 업데이트',['📱 앱(SOROK M)에서는 [저장 후 나가기]를 누르면 저장 후 앱이 종료돼요','🔄 게임 중에 업데이트가 나오면 일시정지되고 [저장 후 나가기] 창이 떠요','🔧 로그인 후 화면의 계정 관리 · 조작법 · 로그아웃 버튼이 안 눌리던 문제 수정','🔑 로그인 화면: 로그인 · 회원가입 탭 분리, 실행 시 로그인 탭이 기본 · 안내 문구는 ! 정보 탭으로 이동',
  ['🛡 기지 보호막 (백도어 방지)',['4구역부터 외계 기지는 수비대가 살아 있을수록 피해를 덜 받아요 (1~3구역은 보호막 없음)','수비대가 전부 살아 있을 때 받는 피해: 4구역 70% · 5구역 50% · 6구역 30% · 7구역 10% → 수비대를 잡을수록 100%에 가까워져요','보호막이 강할 때(피해 50% 미만) 공격 명령을 받은 로봇은 근처 수비대부터 알아서 정리해요','기지 주변에 파란 보호막이 보이고, 수비대를 잡을수록 옅어져요 · 마우스를 올리면 지금 받는 피해 %가 보여요','기지만 노려서 수비대째 없애는 전략 대신, 수비대를 먼저 정리해야 해요']],
  ['⚔ 전투',['기지 공격 명령을 내리면 로봇들이 기지 앞(포탑 사거리 밖)에 공격 대형으로 모였다가 한꺼번에 돌격해요 (근접 앞 · 원거리 가운데 · 지원 뒤)','지원 로봇은 공격 명령 때 적 기지로 뛰어들지 않고 아군 뒤를 따라가요','여러 로봇에게 이동 명령을 내리면 가장 느린 로봇 속도에 맞춰 같이 움직여요 (진화한 지원 로봇이 혼자 앞서가지 않아요)']],
  ['🗺 미니맵',['미니맵이 화면 크기에 맞춰 커졌어요 (보통 PC 화면에서 약 1.5배)','우리 로봇이 미니맵에 더 크고 밝게 보여요 (전투 로봇 하늘색 · 채굴 주황 · 정찰 연노랑 · 선택한 로봇 노랑)']],
@@ -1750,7 +1763,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('button');if(b&&!
  h.addEventListener('pointerdown',e=>{if(e.button!==0||e.target.closest('button'))return;const r=w.getBoundingClientRect(),pr=$('stage').getBoundingClientRect();dg={dx:e.clientX-r.left,dy:e.clientY-r.top,pr};w.style.transform='none';w.style.left=(r.left-pr.left)+'px';w.style.top=(r.top-pr.top)+'px';h.setPointerCapture(e.pointerId);e.preventDefault()});
  h.addEventListener('pointermove',e=>{if(!dg)return;const pr=dg.pr,W=w.offsetWidth,H=w.offsetHeight;w.style.left=cl(e.clientX-pr.left-dg.dx,-W+120,pr.width-120)+'px';w.style.top=cl(e.clientY-pr.top-dg.dy,0,pr.height-50)+'px'});
  h.addEventListener('pointerup',()=>dg=null)})();
-const APPVER='20261125-074543',BUILD='test';if(BUILD==='test')adminOn=true;
+const APPVER='20261125-114109',BUILD='test';if(BUILD==='test')adminOn=true;
 /* ===== 클라우드 계정 (Firebase) · 본섭·테섭에서 켜짐 (아티팩트 미리보기는 기기 계정) ===== */
 const CL=BUILD==='test'||BUILD==='main',VERIFY=BUILD==='main',TID=BUILD==='test',TDOM='@pbe.sorok.game';
 const FBK='AIzaSyASPfEvwyTI9HtXAQzXa3pydetYTBr7fjQ',FBDB='https://firestore.googleapis.com/v1/projects/sorok-77548/databases/(default)/documents';
@@ -1773,6 +1786,7 @@ const cLocalSrc=()=>{const P=pfLoad();if(!P||!P.cur)return null;const u=P.list.f
 const cStashLocal=()=>{try{if(localStorage.getItem('sorokT_clx'))return;const P=pfLoad();if(P&&P.cur)pfStash(P.cur);localStorage.setItem('sorokT_clx','1')}catch(e){}};
 let cBusy=0,cState='';const cReload=()=>{window.__cns=1;location.reload()};
 const cStat=s=>{cState=s;const e=$('cst');if(e)e.textContent=cStatTxt()};
+const cStatW=()=>({ok:'저장됨',sync:'저장 중…',off:'오프라인',err:'저장 실패',conf:'확인 중'}[cState]||'연결됨'),cSrvI=()=>(TCH?'📱 ':'🖥 ')+SRVN,axSt=()=>`<i class="${cState}"></i><span>${cStatW()}</span>`;
 const cStatTxt=()=>'☁ '+SRVN+' · '+({ok:'저장됨',sync:'저장 중…',off:'오프라인 (나중에 저장)',err:'저장 실패',conf:'다른 기기 데이터 확인 중'}[cState]||'연결됨');
 const cFields=d=>({fields:{nick:{stringValue:FB.ses.nick},...(FB.ses.tag?{tag:{stringValue:FB.ses.tag}}:{}),d:{stringValue:d},t:{integerValue:String(Date.now())},email:{stringValue:FB.ses.email||''}}});
 async function cPush(force){const s=FB.ses;if(!CL||!s||!s.nick||cBusy)return;const d=cPack(),h=cHash(d);if(!force&&h===s.h)return;cBusy=1;cStat('sync');
@@ -1845,13 +1859,13 @@ if(CL){
  const _pfUI=pfUI;
  pfUI=function(mode){if(mode==='backup')return _pfUI('backup');let w=$('pfw');if(!w){w=document.createElement('div');w.id='pfw';document.body.appendChild(w);w.addEventListener('click',pfClick);w.addEventListener('keydown',e=>e.stopPropagation())}
   if(!w.dataset.cl){w.dataset.cl=1;w.addEventListener('click',cfClick,true)}
-  const s=FB.ses||{};w.hidden=false;w.dataset.mode='cl';w.innerHTML=`<div class="pfb"><div class="pft">👤 계정 관리</div><ul class="lninfo">
-   <li><b>이메일</b>${pfEsc(s.email||'')} <span id="cver" class="cd"></span></li><li><b>닉네임 (모든 서버 공통)</b>${pfEsc(s.nick||'')}${s.tag?'#'+pfEsc(s.tag):''}</li><li><b>서버</b>${SRVN}</li><li><b>저장 상태</b><span id="cst2">${cStatTxt()}</span></li></ul>
-   <div id="pferr" class="cd" style="color:#9fd8a8"></div>
-   <div class="row2"><button data-cf="sync">지금 저장</button><button data-cf="reset">비밀번호 재설정 메일</button></div>
-   <div class="row2"><button data-cf="verify">인증 메일 다시 보내기</button><button data-pf="backup">💾 백업 코드</button></div>
-   <div class="row2"><button data-cf="logout">로그아웃</button><button data-pf="close" class="go">닫기</button></div></div>`;
-  FB.tok().then(t=>FB.idt('lookup',{idToken:t})).then(j=>{const u=j.users&&j.users[0],e=$('cver');if(e&&u)e.textContent=u.emailVerified?'✅ 인증됨':'⚠ 미인증'}).catch(err=>{const e=$('cver');if(e)e.textContent='(인증 상태 확인 실패: '+fbErr(err)+')'})};
+  const s=FB.ses||{};w.hidden=false;w.dataset.mode='cl';const nk=s.nick||'?';w.innerHTML=`<div class="pfb acx"><div class="pft">👤 계정 관리</div>
+   <div class="axh"><div class="axav">${pfEsc([...nk][0].toUpperCase())}</div><div class="axid"><div class="axn">${pfEsc(nk)}${s.tag?'<span>#'+pfEsc(s.tag)+'</span>':''}</div><div class="axe">${pfEsc(s.email||'')} <span id="cver" class="axv">확인 중…</span></div></div></div>
+   <div class="axr"><div><small>서버</small><b>${cSrvI()}</b></div><div><small>저장</small><b id="cst2">${axSt()}</b></div><button data-cf="sync" class="axs">지금 저장</button></div>
+   <div id="pferr" class="axm"></div>
+   <div class="axg"><button data-cf="verify" id="cvb" hidden>✉️ 인증 메일 다시 보내기</button><button data-cf="reset">🔑 비밀번호 재설정 메일 받기</button><button data-pf="backup">💾 백업 코드</button></div>
+   <div class="row2 axf"><button data-cf="logout" class="axo">로그아웃</button><button data-pf="close" class="go">닫기</button></div></div>`;
+  FB.tok().then(t=>FB.idt('lookup',{idToken:t})).then(j=>{const u=j.users&&j.users[0],e=$('cver');if(e&&u){const v=!!u.emailVerified;e.textContent=v?'✓ 인증됨':'⚠ 미인증';e.className='axv '+(v?'ok':'no');const b=$('cvb');if(b)b.hidden=v}}).catch(err=>{const e=$('cver');if(e){e.textContent='확인 실패';e.title=fbErr(err)}})};
  const _lnc=lnClick0;
  lnClick0=async function(e){const b=e.target.closest('[data-ln]');if(!b)return;const k=b.dataset.ln,er=t=>{const x=$('lnerr');if(x)x.textContent=t},v=id=>(($(id)||{}).value||'').trim();
   try{
@@ -1874,7 +1888,7 @@ if(CL){
   else if(k==='prof')pfUI('list');
   else return _lnc(e)}catch(err){er(fbErr(err))}};
  async function cfClick(e){const b=e.target.closest('[data-cf]');if(!b)return;e.stopPropagation();const k=b.dataset.cf,m=t=>{const x=$('pferr');if(x)x.textContent=t};
-  try{if(k==='sync'){await cPush(true);m(cStatTxt())}
+  try{if(k==='sync'){await cPush(true);const c=$('cst2');if(c)c.innerHTML=axSt();m(cState==='ok'?'저장했어요':cStatW())}
   else if(k==='reset'){await FB.idt('sendOobCode',{requestType:'PASSWORD_RESET',email:FB.ses.email});m('재설정 메일을 보냈어요')}
   else if(k==='verify'){await FB.idt('sendOobCode',{requestType:'VERIFY_EMAIL',idToken:await FB.tok()});m('인증 메일을 보냈어요')}
   else if(k==='logout'){$('pfw').hidden=true;await cLogout()}
@@ -1913,10 +1927,11 @@ if(CL){
    if(!w.dataset.cl){w.dataset.cl=1;w.addEventListener('click',cfClick,true)}
    const s=FB.ses||{};w.hidden=false;w.dataset.mode='cl';
    if(mode==='pw'){w.innerHTML=`<div class="pfb"><div class="pft">🔑 비밀번호 바꾸기</div><input id="cfo" type="password" maxlength="32" placeholder="지금 비밀번호"><input id="cfp" type="password" maxlength="32" placeholder="새 비밀번호 (6~32자)"><input id="cfp2" type="password" maxlength="32" placeholder="새 비밀번호 확인"><div id="pferr" class="cd" style="color:#ff9a8a"></div><div class="row2"><button data-cf="pwok" class="go">바꾸기</button><button data-cf="back">뒤로</button></div></div>`;return}
-   w.innerHTML=`<div class="pfb"><div class="pft">👤 테스터 계정</div><ul class="lninfo">
-    <li><b>아이디</b>${pfEsc(s.nick||s.tid||'')}</li><li><b>서버</b>${SRVN}</li><li><b>저장 상태</b><span id="cst2">${cStatTxt()}</span></li></ul>
-    <div id="pferr" class="cd" style="color:#9fd8a8"></div>
-    <div class="row2"><button data-cf="logout">로그아웃</button><button data-pf="close" class="go">닫기</button></div></div>`};
+   const nk=s.nick||s.tid||'?';w.innerHTML=`<div class="pfb acx"><div class="pft">👤 테스터 계정</div>
+    <div class="axh"><div class="axav">T</div><div class="axid"><div class="axn">${pfEsc(nk)}</div><div class="axe"><span class="axv ok">테스터</span></div></div></div>
+    <div class="axr" style="grid-template-columns:1fr 1fr"><div><small>서버</small><b>${cSrvI()}</b></div><div><small>저장</small><b id="cst2">${axSt()}</b></div></div>
+    <div id="pferr" class="axm"></div>
+    <div class="row2 axf"><button data-cf="logout" class="axo">로그아웃</button><button data-pf="close" class="go">닫기</button></div></div>`};
  }
  const _sg=saveGame;saveGame=function(){if(window.__cns)return;const r=_sg.apply(this,arguments);setTimeout(()=>cPush(),400);return r};
  setInterval(()=>{if(FB.ses&&FB.ses.nick)cPush()},30000);
